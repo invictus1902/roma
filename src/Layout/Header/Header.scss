@@ -1,0 +1,56 @@
+.header {
+  position: fixed;
+  padding: 0 10px;
+  height: 60px;
+  width: 100%;
+  background: #2a2a2a;
+  display: flex;
+  align-items: end;
+
+  &__logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  &__info {
+    margin-left: 30px;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    img {
+      width: 20px;
+      height: 18px;
+      margin-bottom: -3px;
+    }
+
+    p {
+      color: #fff;
+      font-family: "Oswald", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
+
+  &__line {
+    height: 35px;
+    width: 1px;
+    background: white;
+    margin: 0 60px;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      gap: 50px;
+      margin-bottom: 10px;
+
+      li {
+        color: #fff;
+        font-family: "Oswald", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+    }
+  }
+}

@@ -1,12 +1,13 @@
 import React from 'react';
-import './about.scss'
+import './about-us.scss'
 
-const About = () => {
+const AboutUs = () => {
     return (
         <div>
             <h1>O nas</h1>
+
         </div>
     );
 };
 
-export default About;
+export default AboutUs;
