@@ -18,20 +18,35 @@ const BuyingBoards = () => {
                     <div className="buying__info__left__top">
                         <h2>Скупка плат</h2>
                         <p>Цена указана за 1кг <br/>
-                            Берём абсолютно любые платы.</p>
-                        <p>Срезкой являются детали, не проходящие по типу, паспорту или наименованию.</p>
+                            Берём абсолютно любые платы. <br/>
+                            <br/>Срезкой являются детали, не проходящие по типу, паспорту или наименованию.</p>
                     </div>
                     <div className="buying__info__left__product">
                         <div className="buying__info__left__product__top">
-                            <p>Изображение</p>
-                            <p>Название</p>
-                            <p>Примечание</p>
-                            <p>Цена сом шт/кг</p>
+                            <p className="buying__info__left__product__top__img">Изображение</p>
+                            <p className="buying__info__left__product__top__title">Название</p>
+                            <p className="buying__info__left__product__top__discription">Примечание</p>
+                            <p className="buying__info__left__product__top__price">Цена сом шт/кг</p>
                         </div>
-
+                        <div className="buying__info__left__product__all">
+                            <div className="buying__info__left__product__all__img">
+                                <div className="buying__info__left__product__all__img__jpg"></div>
+                            </div>
+                            <div className="buying__info__left__product__all__title">
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            </div>
+                            <div className="buying__info__left__product__all__discription">
+                                <p><span>Для приема:</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloremque est
+                                    magnam omnis quasi rerum voluptas! Architecto dolorum eos excepturi recusandae sunt
+                                    veniam. Hic, iure.</p>
+                            </div>
+                            <div className="buying__info__left__product__all__price">
+                                <p>1000 сом за кг</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="buying__info__left__discripion">
-                        <div className="buying__info__left__discripion__top">
+                    <div className="buying__info__left__discription">
+                        <div className="buying__info__left__discription__top">
                             <h2>Требования к электронным платам</h2>
                             <p>
                                 Убрать: <br/>
@@ -43,8 +58,10 @@ const BuyingBoards = () => {
                                 6. По дорогим позициям: все платы должны быть целые, с чипами и ламелями
                             </p>
                         </div>
-                        <div className="buying__info__left__discripion__line"></div>
-                        <div className="buying__info__left__discripion__bottom">
+                        <div className="buying__info__left__discription__line">
+
+                        </div>
+                        <div className="buying__info__left__discription__bottom">
                             <p>Если вас интересует скупка плат, то вы обратились по адресу. Компания «Радиолом22»
                                 предлагает
                                 свои услуги по выкупу разнообразных плат отечественного и импортного производства. <br/>
@@ -115,10 +132,10 @@ const BuyingBoards = () => {
                         <div className="buying__info__right__nav__line"></div>
                     </div>
                     <h4>Свяжитесь с нами!</h4>
-                    <p><img src={Home} alt=""/> Кыргызская республика г. Токмок - Бишкек</p>
-                    <p><img src={Phone} alt=""/> +996 990 22 21 38</p>
-                    <p><img src={Phone} alt=""/> +996 509 08 02 99</p>
-                    <p><img src={Email} alt=""/> technolomkg@gmail.com</p>
+                    <p className='buying__info__right__contact'><img src={Home} alt=""/> Кыргызская республика г. Токмок - Бишкек</p>
+                    <p className='buying__info__right__contact'><img src={Phone} alt=""/> +996 990 22 21 38</p>
+                    <p className='buying__info__right__contact'><img src={Phone} alt=""/> +996 509 08 02 99</p>
+                    <p className='buying__info__right__email'><img src={Email} alt=""/> technolomkg@gmail.com</p>
                     <div className="buying__info__right__nav__line"></div>
                 </div>
             </div>

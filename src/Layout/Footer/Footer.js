@@ -28,7 +28,9 @@ const Footer = () => {
                     <div className="footer__info__contact__line"></div>
                     <p><img src={Phone} alt=""/> +996 990 22 21 38</p>
                     <p><img src={Phone} alt=""/> +996 509 08 02 99</p>
-                    <p><img src={Email} alt=""/> technolomkg@gmail.com</p>
+                    <a href="mailto:radiolomkg@gmail.com">
+                        <p><img src={Email} alt=""/> technolomkg@gmail.com</p>
+                    </a>
                 </div>
             </section>
             <div className="footer__line"></div>
