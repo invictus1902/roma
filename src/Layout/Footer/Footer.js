@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './footer.scss'
 import Baner from '../img_layout/Баннер-2-1024x392-1.webp'
 import Email from "../img_layout/free-icon-email-482138.png";
 import Phone from "../img_layout/free-icon-contact-4450258.png";
 import Home from '../img_layout/free-icon-home-7543165.png'
+import {CustomContext} from "../../Context";
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
+    const {toTop} = useContext(CustomContext)
+
     return (
         <footer className='footer'>
             <section className='footer__info'>
@@ -39,7 +43,9 @@ const Footer = () => {
                 <div className="footer__intro__line"></div>
                 <p>Использование cookie</p>
                 <div className="footer__intro__line"></div>
-                <p>Политика конфиденциальности</p>
+                <Link onClick={()=> toTop()} to='/privacy-policy'>
+                    <p>Политика конфиденциальности</p>
+                </Link>
             </section>
         </footer>
     );

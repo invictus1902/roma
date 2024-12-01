@@ -236,10 +236,10 @@
         }
 
         &__line {
-          margin: 0 auto;
           width: 97%;
           height: 1px;
-          background: #8f8f8f;
+          background: #E8E8E8;
+          margin: 50px 0;
         }
 
         &__bottom {
@@ -258,10 +258,10 @@
     }
 
     &__line {
+      display: flex;
       margin: 30px 30px;
       width: 1px;
-      height: 1000px;
-      background: #8f8f8f;
+      background: #E8E8E8;
     }
 
     &__right {

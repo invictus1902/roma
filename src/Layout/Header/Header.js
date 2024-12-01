@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Header.scss'
 import Logo from '../img_layout/OIG4.bRQyA27fOQHol3m8z.z5.png'
 import Email from '../img_layout/free-icon-email-482138.png'
 import Phone from '../img_layout/free-icon-contact-4450258.png'
 import {Link} from 'react-router-dom'
+import {CustomContext} from "../../Context";
 
 const Header = () => {
+    const {toTop} = useContext(CustomContext)
 
     return (
         <header className='header'>
@@ -19,16 +21,16 @@ const Header = () => {
             <div className="header__line"></div>
             <nav>
                 <ul>
-                    <Link to='/'>
+                    <Link onClick={()=> toTop()} to='/'>
                         <li>главная</li>
                     </Link>
-                    <Link to='/about-us'>
+                    <Link onClick={()=> toTop()} to='/about-us'>
                         <li>о нас</li>
                     </Link>
-                    <Link to='/buying-boards'>
+                    <Link onClick={()=> toTop()} to='/buying-boards'>
                         <li>скупка</li>
                     </Link>
-                    <Link to='/contacts'>
+                    <Link onClick={()=> toTop()} to='/contacts'>
                         <li>контакты</li>
                     </Link>
                 </ul>
