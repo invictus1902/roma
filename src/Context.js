@@ -6,12 +6,21 @@ import {animateScroll} from "react-scroll";
 export const CustomContext = createContext();
 
 export const Context = (props) => {
-    const [buttons,setButtons] = useState([])
+    const [buttons,setButtons] = useState([]);
+    const [product,setProduct] = useState([])
 
     useEffect(()=>{
         axios('http://localhost:3031/buttons')
             .then(({data})=>setButtons(data))
-    }, [])
+    }, []);
+
+
+    useEffect(()=>{
+        axios('http://localhost:3031/product')
+            .then(({data})=>setProduct(data))
+    }, []);
+
+
     const toTop = () => {
         animateScroll.scrollToTop({
             delay: 0,
@@ -22,7 +31,8 @@ export const Context = (props) => {
 
     const value = {
         toTop,
-        buttons
+        buttons,
+        product
     };
     return <CustomContext.Provider value={value}>
         {props.children}

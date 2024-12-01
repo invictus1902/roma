@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './buying_boards.scss'
 import Home from './img__buying/free-icon-home-7543165.png'
 import {Link} from 'react-router-dom'
 import Email from "../Layout/img_layout/free-icon-email-482138.png";
 import Phone from "../Layout/img_layout/free-icon-contact-4450258.png";
+import {CustomContext} from "../Context";
 
 const BuyingBoards = () => {
+    const {product} = useContext(CustomContext)
+
     return (
         <section className='buying'>
             <div className="buying__banner">
@@ -28,21 +31,29 @@ const BuyingBoards = () => {
                             <p className="buying__info__left__product__top__discription">Примечание</p>
                             <p className="buying__info__left__product__top__price">Цена сом шт/кг</p>
                         </div>
+
+
                         <div className="buying__info__left__product__all">
-                            <div className="buying__info__left__product__all__img">
-                                <div className="buying__info__left__product__all__img__jpg"></div>
-                            </div>
-                            <div className="buying__info__left__product__all__title">
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                            <div className="buying__info__left__product__all__discription">
-                                <p><span>Для приема:</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloremque est
-                                    magnam omnis quasi rerum voluptas! Architecto dolorum eos excepturi recusandae sunt
-                                    veniam. Hic, iure.</p>
-                            </div>
-                            <div className="buying__info__left__product__all__price">
-                                <p>1000 сом за кг</p>
-                            </div>
+                            {
+                                product.map((el)=>(
+                                    <div className={`${el.id % 2 ? "buying__info__left__product__all__one_product" : "buying__info__left__product__all__one_product_beck"}`}>
+                                        <div className="buying__info__left__product__all__one_product__img">
+                                            <img src={el.img} alt=""/>
+                                        </div>
+                                        <div className="buying__info__left__product__all__one_product__title">
+                                            <p>{el.title}</p>
+                                        </div>
+                                        <div className="buying__info__left__product__all__one_product__discription">
+                                            <p><span>Для приема:</span> {el.description}</p>
+                                        </div>
+                                        <div className="buying__info__left__product__all__one_product__price">
+                                            <p>{el.price} сом</p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+
+
                         </div>
                     </div>
                     <div className="buying__info__left__discription">
@@ -132,7 +143,8 @@ const BuyingBoards = () => {
                         <div className="buying__info__right__nav__line"></div>
                     </div>
                     <h4>Свяжитесь с нами!</h4>
-                    <p className='buying__info__right__contact'><img src={Home} alt=""/> Кыргызская республика г. Токмок - Бишкек</p>
+                    <p className='buying__info__right__contact'><img src={Home} alt=""/> Кыргызская республика г. Токмок
+                        - Бишкек</p>
                     <p className='buying__info__right__contact'><img src={Phone} alt=""/> +996 990 22 21 38</p>
                     <p className='buying__info__right__contact'><img src={Phone} alt=""/> +996 509 08 02 99</p>
                     <p className='buying__info__right__email'><img src={Email} alt=""/> technolomkg@gmail.com</p>
