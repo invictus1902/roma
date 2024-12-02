@@ -2,8 +2,11 @@
   padding: 100px 60px 60px 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   &__left {
+    width: 550px;
+    height: 525px;
     h2 {
       display: flex;
       align-items: center;
@@ -20,7 +23,7 @@
     &__line_h2 {
       &__top {
         margin-left: 40px;
-        width: 80%;
+        width: 78%;
         height: 1px;
         background: #E1E1E1;
 
@@ -28,9 +31,10 @@
 
       &__bottom {
         margin-left: 40px;
-        width: 74%;
+        width: 71%;
         height: 1px;
         background: #E1E1E1;
+        display: flex;
 
       }
     }

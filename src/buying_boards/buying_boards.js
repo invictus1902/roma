@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import './buying_boards.scss'
 import Home from './img__buying/free-icon-home-7543165.png'
 import {Link} from 'react-router-dom'
@@ -7,7 +7,7 @@ import Phone from "../Layout/img_layout/free-icon-contact-4450258.png";
 import {CustomContext} from "../Context";
 
 const BuyingBoards = () => {
-    const {product} = useContext(CustomContext)
+    const {product,filter,proba} = useContext(CustomContext);
 
     return (
         <section className='buying'>
@@ -29,13 +29,25 @@ const BuyingBoards = () => {
                             <p className="buying__info__left__product__top__img">Изображение</p>
                             <p className="buying__info__left__product__top__title">Название</p>
                             <p className="buying__info__left__product__top__discription">Примечание</p>
-                            <p className="buying__info__left__product__top__price">Цена сом шт/кг</p>
+                            <p className="buying__info__left__product__top__price">Цена</p>
                         </div>
 
 
                         <div className="buying__info__left__product__all">
                             {
-                                product.map((el)=>(
+                                product
+                                    // .filter((el,idx)=>{
+                                    //     return idx < 20
+                                    // })
+                                    .filter((el) => {
+                                        if (filter === '') {
+                                            return true
+                                        } else {
+                                            return el.category === filter
+                                        }
+
+                                    })
+                                    .map((el)=>(
                                     <div className={`${el.id % 2 ? "buying__info__left__product__all__one_product" : "buying__info__left__product__all__one_product_beck"}`}>
                                         <div className="buying__info__left__product__all__one_product__img">
                                             <img src={el.img} alt=""/>
@@ -44,10 +56,11 @@ const BuyingBoards = () => {
                                             <p>{el.title}</p>
                                         </div>
                                         <div className="buying__info__left__product__all__one_product__discription">
-                                            <p><span>Для приема:</span> {el.description}</p>
+                                            <p><strong>{el.description_dop}</strong></p>
+                                            <p>{el.category === "платы" ? <span>Для приема:</span> : <p> </p> } {el.description}</p>
                                         </div>
                                         <div className="buying__info__left__product__all__one_product__price">
-                                            <p>{el.price} сом</p>
+                                            {el.category === "транзисторы" ? <p>{el.price_new} за нов <br/> {el.price_old === '' ? <p></p> : <p>{el.price_old} за б/у</p>} </p> : <p>{el.price_new} сом</p>}
                                         </div>
                                     </div>
                                 ))
@@ -125,9 +138,9 @@ const BuyingBoards = () => {
                     <h3>Скупка радиодеталей</h3>
                     <div className="buying__info__right__line_h3"></div>
                     <div className="buying__info__right__nav">
-                        <p>Платы</p>
+                        <p onClick={()=>proba("платы")}>Платы</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p>Транзисторы</p>
+                        <p onClick={()=>proba("транзисторы")}>Транзисторы</p>
                         <div className="buying__info__right__nav__line"></div>
                         <p>Конденсаторы</p>
                         <div className="buying__info__right__nav__line"></div>

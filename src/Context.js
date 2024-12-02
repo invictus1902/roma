@@ -6,13 +6,8 @@ import {animateScroll} from "react-scroll";
 export const CustomContext = createContext();
 
 export const Context = (props) => {
-    const [buttons,setButtons] = useState([]);
     const [product,setProduct] = useState([])
 
-    useEffect(()=>{
-        axios('http://localhost:3031/buttons')
-            .then(({data})=>setButtons(data))
-    }, []);
 
 
     useEffect(()=>{
@@ -20,6 +15,12 @@ export const Context = (props) => {
             .then(({data})=>setProduct(data))
     }, []);
 
+
+    const [filter,setFilter] = useState('платы')
+
+    const proba = (el)=>{
+        setFilter(el)
+    };
 
     const toTop = () => {
         animateScroll.scrollToTop({
@@ -31,8 +32,9 @@ export const Context = (props) => {
 
     const value = {
         toTop,
-        buttons,
-        product
+        product,
+        filter,
+        proba
     };
     return <CustomContext.Provider value={value}>
         {props.children}

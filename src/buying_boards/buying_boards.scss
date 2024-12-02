@@ -183,7 +183,8 @@
             &__discription {
               width: 446px;
               height: 76px;
-
+              display: flex;
+              flex-direction: column;
               span {
                 color: #205873;
                 text-align: center;

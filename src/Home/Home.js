@@ -6,7 +6,7 @@ import Mous from './img_home/Frame.png'
 import TronzistorImg from './img_home/lom-600x218.webp'
 
 const Home = () => {
-    const {buttons} = useContext(CustomContext)
+    const {toTop,proba} = useContext(CustomContext)
 
     return (
         <main className='home'>
@@ -28,15 +28,19 @@ const Home = () => {
                     оценить стоимость ваших устройств, и свяжитесь с нами для организации продажи вашего
                     оборудования</p>
                 <div className="home__buying_parts__buttons">
-                    {
-                        buttons.map((el) => (
-                            <div>
-                                <button>
-                                    {el.button}
-                                </button>
-                            </div>
-                        ))
-                    }
+                    <Link to='/buying-boards' onClick={()=>toTop()} >
+                        <button onClick={()=>proba("транзисторы")}>СКУПКА ТРАНЗИСТОРОВ</button>
+                    </Link>
+                    <button>СКУПКА РАЗЪЁМОВ</button>
+                    <button>СКУПКА КОНДЕНСАТОРОВ</button>
+                    <Link to='/buying-boards' onClick={()=>toTop()}>
+                        <button onClick={()=>proba("платы")}>СКУПКА ПЛАТ</button>
+                    </Link>
+                    <button>СКУПКА ДИОДОВ</button>
+                    <button>СКУПКА РЕЗИСТОРОВ</button>
+                    <button>СКУПКА РЕЛЕ</button>
+                    <button>СКУПКА ПРОЦЕССОРОВ</button>
+                    <button>СКУПКА ПРИБОРОВ</button>
                 </div>
                 <div className="home__buying_parts__line_bottom"></div>
                 <div className="home__buying_parts__img">
