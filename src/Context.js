@@ -16,7 +16,7 @@ export const Context = (props) => {
     }, []);
 
 
-    const [filter,setFilter] = useState('платы')
+    const [filter,setFilter] = useState('конденсаторы')
 
     const proba = (el)=>{
         setFilter(el)
