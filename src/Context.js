@@ -1,3 +1,4 @@
+import {useLocation} from "react-router-dom"
 import {createContext, useEffect, useState} from "react";
 import axios from "axios";
 import {animateScroll} from "react-scroll";
@@ -6,19 +7,45 @@ import {animateScroll} from "react-scroll";
 export const CustomContext = createContext();
 
 export const Context = (props) => {
-    const [product,setProduct] = useState([])
+    const location = useLocation();
+    useEffect(() => {
+        const titleName = document.querySelector("title");
+        const nameObdject = () => {
+            if (location.pathname === "/buying-boards") {
+                titleName.innerHTML = renderHeader()
+            }
+            else {
+                titleName.innerHTML = "Технолом"
+            }
+        };
+        nameObdject()
+    });
+
+    const renderHeader = () => {
+        switch (filter) {
+            case "транзисторы":
+                return "💲Скупка транзисторов в Токмоке 🔧 – лучшие цены!";
+            case "конденсаторы":
+                return "🔋Скупка конденсаторов в Токмоке🚀";
+            case "резисторы":
+                return "🔧 Скупка резисторов в Бишкеке – лучшие цены!📈";
+            default:
+                return "Скупка электронных плат в Токмоке";
+        }
+    };
+
+    const [product, setProduct] = useState([])
 
 
-
-    useEffect(()=>{
+    useEffect(() => {
         axios('http://localhost:3031/product')
-            .then(({data})=>setProduct(data))
+            .then(({data}) => setProduct(data))
     }, []);
 
 
-    const [filter,setFilter] = useState('конденсаторы')
+    const [filter, setFilter] = useState('резисторы')
 
-    const proba = (el)=>{
+    const proba = (el) => {
         setFilter(el)
     };
 
@@ -30,11 +57,15 @@ export const Context = (props) => {
         })
     };
 
+
+
+
     const value = {
         toTop,
         product,
         filter,
-        proba
+        proba,
+        renderHeader
     };
     return <CustomContext.Provider value={value}>
         {props.children}

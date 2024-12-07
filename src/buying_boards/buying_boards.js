@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './buying_boards.scss'
 import Home from './img__buying/free-icon-home-7543165.png'
 import {Link} from 'react-router-dom'
@@ -7,30 +7,15 @@ import Phone from "../Layout/img_layout/free-icon-contact-4450258.png";
 import {CustomContext} from "../Context";
 
 const BuyingBoards = () => {
-    const {product, filter, proba} = useContext(CustomContext);
+    const {product, filter, proba, toTop, renderHeader} = useContext(CustomContext);
+
 
     return (
         <section className='buying'>
             <div className="buying__banner">
-                {filter === "транзисторы" ?
-                    <h1>💲Скупка транзисторов в Бишкеке 🔧 – лучшие цены!</h1>
-                    :
-                    filter === "конденсаторы"
-                        ?
-                        <h1>🔋Скупка конденсаторов в Бишкеке🚀</h1>
-                        :
-                        <h1>Скупка электронных плат в Токмоке</h1>
-                }
+                <h1>{renderHeader()}</h1>
                 <p><img src={Home} alt=""/> <Link to='/'>Home</Link> <span>></span>
-                    {filter === "транзисторы" ?
-                        "💲Скупка транзисторов в Бишкеке 🔧 – лучшие цены!"
-                        :
-                        filter === "конденсаторы"
-                            ?
-                            "🔋Скупка конденсаторов в Бишкеке🚀"
-                            :
-                            "Скупка электронных плат в Токмоке"
-                    }
+                    {renderHeader()}
                 </p>
             </div>
             <div className="buying__info container">
@@ -53,9 +38,6 @@ const BuyingBoards = () => {
                         <div className="buying__info__left__product__all">
                             {
                                 product
-                                    // .filter((el,idx)=>{
-                                    //     return idx < 20
-                                    // })
                                     .filter((el) => {
                                         if (filter === '') {
                                             return true
@@ -75,9 +57,20 @@ const BuyingBoards = () => {
                                             </div>
                                             <div className="buying__info__left__product__all__one_product__discription">
                                                 <p><strong>{el.description_dop}</strong></p>
-                                                <p>{el.category === "платы" || el.category === "конденсаторы" ?
-                                                    <span>Для приема:</span> :
-                                                    <p></p>} {el.description}</p>
+                                                <p>
+                                                    {
+                                                        el.category === "платы" || el.category === "конденсаторы"
+                                                            ?
+                                                            el.description === ""
+                                                                ?
+                                                                <p>{el.description_info_price}</p>
+                                                                :
+                                                                <span>Для приема:</span>
+                                                            :
+                                                            <p></p>
+                                                    }
+                                                    {el.description}
+                                                </p>
                                             </div>
                                             <div className="buying__info__left__product__all__one_product__price">
                                                 {el.category === "транзисторы" ?
@@ -164,13 +157,13 @@ const BuyingBoards = () => {
                     <h3>Скупка радиодеталей</h3>
                     <div className="buying__info__right__line_h3"></div>
                     <div className="buying__info__right__nav">
-                        <p onClick={() => proba("платы")}>Платы</p>
+                        <p onClick={() => proba("платы") || toTop()}>Платы</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p onClick={() => proba("транзисторы")}>Транзисторы</p>
+                        <p onClick={() => proba("транзисторы") || toTop()}>Транзисторы</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p onClick={() => proba("конденсаторы")}>Конденсаторы</p>
+                        <p onClick={() => proba("конденсаторы") || toTop()}>Конденсаторы</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p>Резисторы</p>
+                        <p onClick={() => proba("резисторы") || toTop()}>Резисторы</p>
                         <div className="buying__info__right__nav__line"></div>
                         <p>Разъемы</p>
                         <div className="buying__info__right__nav__line"></div>

@@ -59,11 +59,11 @@
 
   &__info {
     display: flex;
-
+    align-items: flex-start;
     &__left {
-      width: 825px;
+      width: auto;
       margin-top: 50px;
-
+      flex: 3;
       &__top {
         h2 {
           color: #16B9A7;
@@ -273,15 +273,18 @@
     }
 
     &__line {
-      display: flex;
       margin: 30px 30px;
       width: 1px;
       background: #E8E8E8;
+      flex: 1;
+      height: auto;
     }
 
     &__right {
       width: 254px;
-
+      flex: 2;
+      position: sticky;
+      top: 100px;
       h3 {
         color: #333;
         font-family: "Fira Sans", sans-serif;
