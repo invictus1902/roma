@@ -31,18 +31,23 @@ const Home = () => {
                     <Link to='/buying-boards' onClick={() => toTop()}>
                         <button onClick={() => proba("транзисторы")}>СКУПКА ТРАНЗИСТОРОВ</button>
                     </Link>
-                    <button>СКУПКА РАЗЪЁМОВ</button>
                     <Link to='/buying-boards' onClick={() => toTop()}>
                         <button onClick={() => proba("конденсаторы")}>СКУПКА КОНДЕНСАТОРОВ</button>
                     </Link>
                     <Link to='/buying-boards' onClick={() => toTop()}>
                         <button onClick={() => proba("платы")}>СКУПКА ПЛАТ</button>
                     </Link>
-                    <button>СКУПКА ДИОДОВ</button>
-                    <button>СКУПКА РЕЗИСТОРОВ</button>
+                    <Link to='/buying-boards' onClick={() => toTop()}>
+                        <button onClick={() => proba("резисторы")}>СКУПКА РЕЗИСТОРОВ</button>
+                    </Link>
+                    <Link to='/buying-boards' onClick={() => toTop()}>
+                        <button onClick={() => proba("разъемы")}>СКУПКА РАЗЪЕМОВ</button>
+                    </Link>
+                    <Link to='/buying-boards' onClick={() => toTop()}>
+                        <button onClick={() => proba("диоды")}>СКУПКА ДИОДОВ</button>
+                    </Link>
                     <button>СКУПКА РЕЛЕ</button>
                     <button>СКУПКА ПРОЦЕССОРОВ</button>
-                    <button>СКУПКА ПРИБОРОВ</button>
                 </div>
                 <div className="home__buying_parts__line_bottom"></div>
                 <div className="home__buying_parts__img">

@@ -7,7 +7,7 @@ import Phone from "../Layout/img_layout/free-icon-contact-4450258.png";
 import {CustomContext} from "../Context";
 
 const BuyingBoards = () => {
-    const {product, filter, proba, toTop, renderHeader} = useContext(CustomContext);
+    const {product, filter, proba, toTop, renderHeader,deleteProduct} = useContext(CustomContext);
 
 
     return (
@@ -20,12 +20,18 @@ const BuyingBoards = () => {
             </div>
             <div className="buying__info container">
                 <div className="buying__info__left">
-                    <div className="buying__info__left__top">
-                        <h2>Скупка плат</h2>
-                        <p>Цена указана за 1кг <br/>
-                            Берём абсолютно любые платы. <br/>
-                            <br/>Срезкой являются детали, не проходящие по типу, паспорту или наименованию.</p>
-                    </div>
+                    {
+                        filter === "платы" ?
+                            <div className="buying__info__left__top">
+                                <h2>Скупка плат</h2>
+                                <p>Цена указана за 1кг <br/>
+                                    Берём абсолютно любые платы. <br/>
+                                    <br/>Срезкой являются детали, не проходящие по типу, паспорту или наименованию.</p>
+                            </div>
+                            :
+                            ""
+                    }
+
                     <div className="buying__info__left__product">
                         <div className="buying__info__left__product__top">
                             <p className="buying__info__left__product__top__img">Изображение</p>
@@ -46,9 +52,9 @@ const BuyingBoards = () => {
                                         }
 
                                     })
-                                    .map((el) => (
+                                    .map((el, idx) => (
                                         <div
-                                            className={`${el.id % 2 ? "buying__info__left__product__all__one_product" : "buying__info__left__product__all__one_product_beck"}`}>
+                                            className={`${idx % 2 ? "buying__info__left__product__all__one_product" : "buying__info__left__product__all__one_product_beck"}`}>
                                             <div className="buying__info__left__product__all__one_product__img">
                                                 <img src={el.img} alt=""/>
                                             </div>
@@ -72,8 +78,17 @@ const BuyingBoards = () => {
                                                     {el.description}
                                                 </p>
                                             </div>
+                                            {/*<button onClick={()=>deleteProduct(el.id)}>*/}
+                                            {/*    удалить*/}
+                                            {/*</button>*/}
+                                            {/*<Link to={`/patch/${el.id}`}>*/}
+                                            {/*    <button onClick={()=>toTop()}>*/}
+                                            {/*        Редактировать*/}
+                                            {/*    </button>*/}
+                                            {/*</Link>*/}
+
                                             <div className="buying__info__left__product__all__one_product__price">
-                                                {el.category === "транзисторы" ?
+                                                {el.category === "транзисторы" || el.category === "диоды" ?
                                                     <p>
                                                         {el.price_new} за нов <br/>
                                                         {el.price_old === '' ? <p></p> : <p>{el.price_old} за б/у</p>}
@@ -165,13 +180,13 @@ const BuyingBoards = () => {
                         <div className="buying__info__right__nav__line"></div>
                         <p onClick={() => proba("резисторы") || toTop()}>Резисторы</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p>Разъемы</p>
+                        <p onClick={() => proba("разъемы") || toTop()}>Разъемы</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p>Диоды</p>
+                        <p onClick={() => proba("диоды") || toTop()}>Диоды</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p>Реле</p>
+                        <p onClick={() => proba("реле") || toTop()}>Реле</p>
                         <div className="buying__info__right__nav__line"></div>
-                        <p>Процессоры</p>
+                        <p onClick={() => proba("процессоры") || toTop()}>Процессоры</p>
                         <div className="buying__info__right__nav__line"></div>
                     </div>
                     <h4>Свяжитесь с нами!</h4>

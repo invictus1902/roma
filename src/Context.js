@@ -28,7 +28,15 @@ export const Context = (props) => {
             case "конденсаторы":
                 return "🔋Скупка конденсаторов в Токмоке🚀";
             case "резисторы":
-                return "🔧 Скупка резисторов в Бишкеке – лучшие цены!📈";
+                return "🔧 Скупка резисторов в Токмоке – лучшие цены!📈";
+            case "разъемы":
+                return "🔌Скупка разъемов в Токмоке💥- Выгодно и Быстро";
+            case "диоды":
+                return "⚡Скупка диодов в Токмоке | Выгодные цены и быстрая оценка!💡";
+            case "реле":
+                return "⚙️Скупка реле в Токмоке🔄 – выгодные условия!";
+            case "процессоры":
+                return "🖥️ Скупка процессоров в Токмоке💰";
             default:
                 return "Скупка электронных плат в Токмоке";
         }
@@ -43,10 +51,14 @@ export const Context = (props) => {
     }, []);
 
 
-    const [filter, setFilter] = useState('резисторы')
+    const [filter, setFilter] = useState('платы')
 
     const proba = (el) => {
         setFilter(el)
+    };
+    const deleteProduct = (id)=>{
+        axios.delete(`http://localhost:3031/product/${id}`);
+        window.location.reload()
     };
 
     const toTop = () => {
@@ -57,15 +69,21 @@ export const Context = (props) => {
         })
     };
 
+    const [menu,setMenu] = useState(false)
 
-
+    const mobelMenu = (el)=>{
+        setMenu(el)
+    }
 
     const value = {
         toTop,
         product,
         filter,
         proba,
-        renderHeader
+        renderHeader,
+        deleteProduct,
+        mobelMenu,
+        menu
     };
     return <CustomContext.Provider value={value}>
         {props.children}

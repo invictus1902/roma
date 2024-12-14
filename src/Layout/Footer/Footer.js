@@ -6,6 +6,7 @@ import Phone from "../img_layout/free-icon-contact-4450258.png";
 import Home from '../img_layout/free-icon-home-7543165.png'
 import {CustomContext} from "../../Context";
 import {Link} from 'react-router-dom'
+import '../../all__adaptations.scss'
 
 const Footer = () => {
     const {toTop} = useContext(CustomContext)
@@ -40,8 +41,6 @@ const Footer = () => {
             <div className="footer__line"></div>
             <section className='footer__intro'>
                 <p>© TECHNOLOM.KG | Все права защищены.</p>
-                <div className="footer__intro__line"></div>
-                <p>Использование cookie</p>
                 <div className="footer__intro__line"></div>
                 <Link onClick={()=> toTop()} to='/privacy-policy'>
                     <p>Политика конфиденциальности</p>
