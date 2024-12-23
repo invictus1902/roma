@@ -4,9 +4,11 @@
   width: 100%;
   background: #2a2a2a;
   position: fixed;
+
   &__loptop {
     display: flex;
     align-items: center;
+
     &__logo {
       display: flex;
       align-items: center;
@@ -56,17 +58,69 @@
 
     nav {
 
-        display: flex;
-        gap: 50px;
-        margin-bottom: 10px;
+      display: flex;
+      gap: 50px;
+      margin-bottom: 10px;
 
-        a {
+      a {
+        color: #fff;
+        font-family: "Fira Sans", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+    }
+
+    &__filter {
+      &__button {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        &__line{
+          width: 16px;
+          height: 16px;
+          display: none;
+          &__but{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &__x {
+              margin-left: -0.5px;
+              width: 1px;
+              height: 16px;
+              background: rgba(255, 255, 255, 0.73);
+            }
+
+            &__y {
+              position: absolute;
+              width: 16px;
+              height: 1px;
+              background: rgba(255, 255, 255, 0.73);
+            }
+          }
+
+        }
+      }
+
+      &__nav {
+        position: absolute;
+        margin: 25px 0 0 -20px;
+        p {
+          border-width: 1px 0 0 0;
+          border-style: solid;
+          background: #2a2a2a;
           color: #fff;
-          font-family: "Fira Sans",sans-serif;
+          font-family: "Fira Sans", sans-serif;
           font-weight: 700;
           font-style: normal;
-        }
+          padding: 10px 20px;
 
+          a {
+            color: white;
+
+          }
+        }
+      }
     }
   }
 
@@ -89,22 +143,54 @@
         width: 100%;
       }
     }
-
     &__nav {
-      position: relative;
-      p{
-        border-width: 1px 0 0 0 ;
+      p {
+        border-width: 1px 0 0 0;
         border-style: solid;
         background: #2a2a2a;
         color: #fff;
-        font-family: "Fira Sans",sans-serif;
+        font-family: "Fira Sans", sans-serif;
         font-weight: 700;
         font-style: normal;
         padding: 10px 20px;
-        a{
+
+        a {
           color: white;
 
         }
+      }
+      &__filter {
+        background: #2a2a2a;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &__button {
+          width: 16px;
+          height: 16px;
+          margin-right: 20px;
+          &__line{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &__x {
+              margin-left: -0.5px;
+              width: 1px;
+              height: 16px;
+              background: rgba(255, 255, 255, 0.73);
+            }
+            &__y {
+              position: absolute;
+              width: 16px;
+              height: 1px;
+              background: rgba(255, 255, 255, 0.73);
+            }
+          }
+
+        }
+      }
+      &__filter_menu {
+        position: absolute;
+        width: 100%;
       }
     }
   }

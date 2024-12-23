@@ -7,7 +7,14 @@ import Phone from "../Layout/img_layout/free-icon-contact-4450258.png";
 import {CustomContext} from "../Context";
 
 const BuyingBoards = () => {
-    const {product, filter, proba, toTop, renderHeader,deleteProduct} = useContext(CustomContext);
+    const {
+        product, filter, proba, toTop, renderHeader,
+        deleteProduct,
+        isModalOpen,
+        modalImage,
+        openModal,
+        closeModal,
+    } = useContext(CustomContext);
 
 
     return (
@@ -53,53 +60,79 @@ const BuyingBoards = () => {
 
                                     })
                                     .map((el, idx) => (
-                                        <div
-                                            className={`${idx % 2 ? "buying__info__left__product__all__one_product" : "buying__info__left__product__all__one_product_beck"}`}>
-                                            <div className="buying__info__left__product__all__one_product__img">
-                                                <img src={el.img} alt=""/>
-                                            </div>
-                                            <div className="buying__info__left__product__all__one_product__title">
-                                                <p>{el.title}</p>
-                                            </div>
-                                            <div className="buying__info__left__product__all__one_product__discription">
-                                                <p><strong>{el.description_dop}</strong></p>
-                                                <p>
-                                                    {
-                                                        el.category === "платы" || el.category === "конденсаторы"
-                                                            ?
-                                                            el.description === ""
-                                                                ?
-                                                                <p>{el.description_info_price}</p>
-                                                                :
-                                                                <span>Для приема:</span>
-                                                            :
-                                                            <p></p>
-                                                    }
-                                                    {el.description}
-                                                </p>
-                                            </div>
-                                            {/*<button onClick={()=>deleteProduct(el.id)}>*/}
-                                            {/*    удалить*/}
-                                            {/*</button>*/}
-                                            {/*<Link to={`/patch/${el.id}`}>*/}
-                                            {/*    <button onClick={()=>toTop()}>*/}
-                                            {/*        Редактировать*/}
-                                            {/*    </button>*/}
-                                            {/*</Link>*/}
-
-                                            <div className="buying__info__left__product__all__one_product__price">
-                                                {el.category === "транзисторы" || el.category === "диоды" ?
+                                        <div>
+                                            <div
+                                                className={`${idx % 2 ? "buying__info__left__product__all__one_product" : "buying__info__left__product__all__one_product_beck"}`}>
+                                                <div className="buying__info__left__product__all__one_product__img">
+                                                    <img src={el.img} alt={el.title} onClick={() => openModal(el.img)}/>
+                                                </div>
+                                                <div className="buying__info__left__product__all__one_product__title">
+                                                    <p>{el.title}</p>
+                                                </div>
+                                                <div
+                                                    className="buying__info__left__product__all__one_product__discription">
+                                                    <p><strong>{el.description_dop}</strong></p>
                                                     <p>
-                                                        {el.price_new} за нов <br/>
-                                                        {el.price_old === '' ? <p></p> : <p>{el.price_old} за б/у</p>}
+                                                        {
+                                                            el.category === "платы" || el.category === "конденсаторы"
+                                                                ?
+                                                                el.description === ""
+                                                                    ?
+                                                                    <p>{el.description_info_price}</p>
+                                                                    :
+                                                                    <span>Для приема:</span>
+                                                                :
+                                                                <p></p>
+                                                        }
+                                                        {el.description}
                                                     </p>
-                                                    :
-                                                    <p>{el.price_new} сом</p>}
+                                                </div>
+                                                {/*<button onClick={()=>deleteProduct(el.id)}>*/}
+                                                {/*    удалить*/}
+                                                {/*</button>*/}
+                                                {/*<Link to={`/patch/${el.id}`}>*/}
+                                                {/*    <button onClick={()=>toTop()}>*/}
+                                                {/*        Редактировать*/}
+                                                {/*    </button>*/}
+                                                {/*</Link>*/}
+
+                                                <div className="buying__info__left__product__all__one_product__price">
+                                                    {el.category === "транзисторы" || el.category === "диоды" ?
+                                                        <p>
+                                                            {el.price_new} за нов <br/>
+                                                            {el.price_old === '' ? <p></p> :
+                                                                <p>{el.price_old} за б/у</p>}
+                                                        </p>
+                                                        :
+                                                        <p>{el.price_new} сом</p>}
+                                                </div>
                                             </div>
                                         </div>
+
                                     ))
                             }
+                            {
+                                product.filter((el) => {
+                                    return el.img === modalImage
+                                })
+                                    .map((el) => (
+                                        <div className="buying__info__modal__overlay" onClick={closeModal}>
+                                            <div className="buying__info__modal__content"
+                                                 onClick={(e) => e.stopPropagation()}>
+                                                <div className="buying__info__modal__header">
+                                                    <h2>{el.title}</h2>
+                                                    <button className="buying__info__modal__close"
+                                                            onClick={closeModal}>Закрыть
+                                                    </button>
+                                                </div>
+                                                <div className="buying__info__modal__body">
+                                                    <img src={modalImage} alt={el.title}
+                                                         className="buying__info__modal__image"/>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    ))}
 
                         </div>
                     </div>
@@ -165,9 +198,7 @@ const BuyingBoards = () => {
                     </div>
 
                 </div>
-                <div className="buying__info__line">
 
-                </div>
                 <div className="buying__info__right">
                     <h3>Скупка радиодеталей</h3>
                     <div className="buying__info__right__line_h3"></div>

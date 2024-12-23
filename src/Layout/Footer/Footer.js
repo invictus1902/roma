@@ -33,16 +33,14 @@ const Footer = () => {
                     <div className="footer__info__contact__line"></div>
                     <p><img src={Phone} alt=""/> +996 990 22 21 38</p>
                     <p><img src={Phone} alt=""/> +996 509 08 02 99</p>
-                    <a href="mailto:radiolomkg@gmail.com">
-                        <p><img src={Email} alt=""/> technolomkg@gmail.com</p>
-                    </a>
+                    <p><img src={Email} alt=""/> technolomkg@gmail.com</p>
                 </div>
             </section>
             <div className="footer__line"></div>
             <section className='footer__intro'>
                 <p>© TECHNOLOM.KG | Все права защищены.</p>
                 <div className="footer__intro__line"></div>
-                <Link onClick={()=> toTop()} to='/privacy-policy'>
+                <Link onClick={() => toTop()} to='/privacy-policy'>
                     <p>Политика конфиденциальности</p>
                 </Link>
             </section>

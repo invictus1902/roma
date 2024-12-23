@@ -94,13 +94,12 @@
   }
   &__line{
     margin-left: 50px;
-    width: 93%;
     height: 1px;
     background: #3c3c3c;
   }
   &__intro{
+    margin: 15px 0 10px 0;
     padding: 0 50px;
-    height: 81px;
     background: #2A2A2A;
     display: flex;
     align-items: center;

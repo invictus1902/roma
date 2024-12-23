@@ -1,12 +1,50 @@
 import {useLocation} from "react-router-dom"
-import {createContext, useEffect, useState} from "react";
+import {createContext, useEffect, useState, useRef} from "react";
+import emailjs from "emailjs-com"
 import axios from "axios";
 import {animateScroll} from "react-scroll";
+
 
 
 export const CustomContext = createContext();
 
 export const Context = (props) => {
+
+    const form = useRef();
+    const [status,setStatus] = useState('');
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form.current);
+
+        console.log('Данные формы:', {
+            from_name: formData.get('from_name'),
+            namber_user: formData.get('namber_user'),
+            message: formData.get('message'),
+        });
+
+        emailjs
+            .sendForm(
+                'service_eplzjji',      // Ваш Service ID
+                'template_0fetif2',     // Ваш Template ID
+                form.current,           // Форма
+                'iCTr7YvPOeeP0Hf7l'     // Ваш Public Key (User ID)
+            )
+            .then(
+                (result) => {
+                    console.log('Успешно отправлено:', result.text);
+                    setStatus('Сообщение отправлено!');
+                    form.current.reset(); // Очищаем форму
+                },
+                (error) => {
+                    console.error('Ошибка отправки:', error.text);
+                    setStatus('Ошибка при отправке сообщения.');
+                }
+            );
+    };
+
+
     const location = useLocation();
     useEffect(() => {
         const titleName = document.querySelector("title");
@@ -69,13 +107,52 @@ export const Context = (props) => {
         })
     };
 
-    const [menu,setMenu] = useState(false)
+    const [menu,setMenu] = useState(false);
+    const [filterMenu,setFilterMenu] = useState(false);
 
-    const mobelMenu = (el)=>{
-        setMenu(el)
-    }
+
+
+    // Функция для открытия/закрытия обычного меню
+    const mobelMenu = () => {
+        setMenu(prevState => {
+            const newMenuState = !prevState;
+            if (!newMenuState) {
+                // Если обычное меню закрывается, закрываем фильтр
+                setFilterMenu(false);
+            }
+            return newMenuState;
+        });
+    };
+
+    // Функция для открытия/закрытия фильтра
+    const menuFilter = () => {
+        setFilterMenu(prevState => !prevState);
+    };
+
+
+    const [filterAll,setFilterAll] = useState(false);
+    const menuFilterAll = () => {
+        setFilterAll(prevState => !prevState);
+    };
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalImage, setModalImage] = useState("");
+
+    const openModal = (img) => {
+        setModalImage(img);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setModalImage("");
+    };
 
     const value = {
+        isModalOpen,
+        modalImage,
+        openModal,
+        closeModal,
         toTop,
         product,
         filter,
@@ -83,7 +160,14 @@ export const Context = (props) => {
         renderHeader,
         deleteProduct,
         mobelMenu,
-        menu
+        menu,
+        sendEmail,
+        form,
+        status,
+        filterMenu,
+        menuFilter,
+        menuFilterAll,
+        filterAll
     };
     return <CustomContext.Provider value={value}>
         {props.children}

@@ -46,8 +46,12 @@ const Home = () => {
                     <Link to='/buying-boards' onClick={() => toTop()}>
                         <button onClick={() => proba("диоды")}>СКУПКА ДИОДОВ</button>
                     </Link>
-                    <button>СКУПКА РЕЛЕ</button>
-                    <button>СКУПКА ПРОЦЕССОРОВ</button>
+                    <Link to='/buying-boards' onClick={() => toTop()}>
+                        <button onClick={() => proba("реле")}>СКУПКА РЕЛЕ</button>
+                    </Link>
+                    <Link to='/buying-boards' onClick={() => toTop()}>
+                        <button onClick={() => proba("процессоры")}>СКУПКА ПРОЦЕССОРОВ</button>
+                    </Link>
                 </div>
                 <div className="home__buying_parts__line_bottom"></div>
                 <div className="home__buying_parts__img">

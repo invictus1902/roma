@@ -44,10 +44,7 @@ const AboutUs = () => {
                                 <div className="about-us__info__left__akardion__top__p-a-p__minus"></div>
                             </div>
                         </div>
-                        <div
-                            className={`about-us__info__left__akardion__bottom ${
-    acar === 1 ? "about-us__info__left__akardion__bottom_ac" : ""
-}`}>
+                        <div className={`about-us__info__left__akardion__bottom ${ acar === 1 ? "about-us__info__left__akardion__bottom_ac" : ""}`}>
                             <p>
                                 Наличие драгметаллов в платах – давно не секрет. Содержание драгметаллов в оборудовании
                                 различно, но может достигать весьма ощутимых значений. Однако несмотря на внешнюю

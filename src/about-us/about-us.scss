@@ -58,7 +58,7 @@
     display: flex;
     padding: 50px 60px;
     &__left{
-      width: 590px;
+      width: 50%;
       h3{
         color: #323232;
         font-family: "Fira Sans",sans-serif;
@@ -82,7 +82,7 @@
         line-height: 20px; /* 142.857% */
       }
       &__line{
-        width: 590px;
+        width: 100%;
         height: 1px;
         background: #E1E1E1;
         margin: 10px 0;
@@ -150,13 +150,13 @@
       }
     }
     &__line{
+      display: flex;
       margin: 0 20px;
       width: 1px;
-      height: 386px;
       background: #E1E1E1;
     }
     &__right{
-      width: 590px;
+      width: 50%;
       h3{
         color: #323232;
         font-family: "Fira Sans",sans-serif;
