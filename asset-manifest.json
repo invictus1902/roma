@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/roma/static/css/main.c7df24d0.css",
-    "main.js": "/roma/static/js/main.cde5f18e.js",
+    "main.js": "/roma/static/js/main.d68879b6.js",
     "static/media/OIG4.bRQyA27fOQHol3m8z.z5.png": "/roma/static/media/OIG4.bRQyA27fOQHol3m8z.z5.2016774e129d0c6eced6.png",
     "static/media/Баннер-2-1024x392-1.webp": "/roma/static/media/Баннер-2-1024x392-1.f1158df12e9993faccb3.webp",
     "static/media/beck.webp": "/roma/static/media/beck.a9c429d9d296cc29de5d.webp",
@@ -12,10 +12,10 @@
     "static/media/free-icon-email-482138.png": "/roma/static/media/free-icon-email-482138.20101c61c3e5ada3f345.png",
     "index.html": "/roma/index.html",
     "main.c7df24d0.css.map": "/roma/static/css/main.c7df24d0.css.map",
-    "main.cde5f18e.js.map": "/roma/static/js/main.cde5f18e.js.map"
+    "main.d68879b6.js.map": "/roma/static/js/main.d68879b6.js.map"
   },
   "entrypoints": [
     "static/css/main.c7df24d0.css",
-    "static/js/main.cde5f18e.js"
+    "static/js/main.d68879b6.js"
   ]
 }
