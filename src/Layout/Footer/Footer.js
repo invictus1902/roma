@@ -3,7 +3,6 @@ import './footer.scss'
 import Baner from '../img_layout/Баннер-2-1024x392-1.webp'
 import Email from "../img_layout/free-icon-email-482138.png";
 import Phone from "../img_layout/free-icon-contact-4450258.png";
-import Home from '../img_layout/free-icon-home-7543165.png'
 import {CustomContext} from "../../Context";
 import {Link} from 'react-router-dom'
 import '../../all__adaptations.scss'

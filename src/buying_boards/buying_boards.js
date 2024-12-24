@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import './buying_boards.scss'
 import Home from './img__buying/free-icon-home-7543165.png'
 import {Link} from 'react-router-dom'
@@ -9,8 +9,8 @@ import {CustomContext} from "../Context";
 const BuyingBoards = () => {
     const {
         product, filter, proba, toTop, renderHeader,
-        deleteProduct,
-        isModalOpen,
+        // deleteProduct,
+        // isModalOpen,
         modalImage,
         openModal,
         closeModal,
