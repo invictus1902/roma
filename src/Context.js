@@ -148,6 +148,8 @@ export const Context = (props) => {
         setModalImage("");
     };
 
+  
+
     const value = {
         isModalOpen,
         modalImage,
