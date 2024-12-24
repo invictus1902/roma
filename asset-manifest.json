@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/roma/static/css/main.c7df24d0.css",
+    "main.js": "/roma/static/js/main.cde5f18e.js",
+    "static/media/OIG4.bRQyA27fOQHol3m8z.z5.png": "/roma/static/media/OIG4.bRQyA27fOQHol3m8z.z5.2016774e129d0c6eced6.png",
+    "static/media/Баннер-2-1024x392-1.webp": "/roma/static/media/Баннер-2-1024x392-1.f1158df12e9993faccb3.webp",
+    "static/media/beck.webp": "/roma/static/media/beck.a9c429d9d296cc29de5d.webp",
+    "static/media/lom-600x218.webp": "/roma/static/media/lom-600x218.ccdd495062e65b189846.webp",
+    "static/media/free-icon-contact-4450258.png": "/roma/static/media/free-icon-contact-4450258.b57e2fb4cb3cdda978a3.png",
+    "static/media/sub-header-background.jpg": "/roma/static/media/sub-header-background.62450362c08b6535a380.jpg",
+    "static/media/free-icon-home-7543165.png": "/roma/static/media/free-icon-home-7543165.c822baa48b2c4105e856.png",
+    "static/media/free-icon-email-482138.png": "/roma/static/media/free-icon-email-482138.20101c61c3e5ada3f345.png",
+    "index.html": "/roma/index.html",
+    "main.c7df24d0.css.map": "/roma/static/css/main.c7df24d0.css.map",
+    "main.cde5f18e.js.map": "/roma/static/js/main.cde5f18e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7df24d0.css",
+    "static/js/main.cde5f18e.js"
+  ]
+}
